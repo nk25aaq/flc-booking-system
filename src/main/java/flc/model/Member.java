@@ -18,6 +18,18 @@ public class Member {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Member)) return false;
+        return memberId.equals(((Member) o).memberId);
+    }
+
+    @Override
+    public int hashCode() {
+        return memberId.hashCode();
+    }
+
+    @Override
     public String toString() {
         return memberId + " - " + name;
     }

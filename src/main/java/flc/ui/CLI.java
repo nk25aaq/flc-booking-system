@@ -278,6 +278,11 @@ public class CLI {
         Lesson lesson = manager.getTimetable().getLessonById(lessonId);
         if (lesson == null) {
             System.out.println("ERROR: Lesson " + lessonId + " not found.");
+            return null;
+        }
+        if (!lessons.contains(lesson)) {
+            System.out.println("ERROR: Lesson " + lessonId + " is not in the displayed list. Please choose from the lessons shown above.");
+            return null;
         }
         return lesson;
     }

@@ -64,8 +64,20 @@ public class Lesson {
     public int getMonth()               { return month; }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Lesson)) return false;
+        return lessonId.equals(((Lesson) o).lessonId);
+    }
+
+    @Override
+    public int hashCode() {
+        return lessonId.hashCode();
+    }
+
+    @Override
     public String toString() {
-        return String.format("%-6s | Wknd %-2d | %-9s | %-9s | %-10s | £%-5.2f | Spaces: %d/%d",
+        return String.format("%-6s | Wknd %-2d | %-9s | %-9s | %-10s | £%-5.2f | Booked: %d/%d",
                 lessonId, weekendNumber,
                 day.getDisplayName(), timeSlot.getDisplayName(),
                 exerciseType.getDisplayName(), exerciseType.getPrice(),
